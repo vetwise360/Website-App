@@ -1,0 +1,46 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import site from '../data/site.json';
+import DemoBanner from '../components/DemoBanner.astro';
+
+interface Props { title?: string; description?: string; }
+const { title = site.seo.title, description = site.seo.description } = Astro.props;
+const b = site.business;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': b.type || 'LocalBusiness',
+  name: b.name,
+  telephone: b.phone,
+  email: b.email,
+  address: { '@type': 'PostalAddress', streetAddress: b.address.street, addressLocality: b.address.city, addressRegion: b.address.region, postalCode: b.address.postal },
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <!-- Demo build: keep out of search engines. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-paper focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+    {site.demo?.show && <DemoBanner />}
+    <slot />
+    <script is:inline>
+      // Reveal-on-scroll (progressive enhancement; see .reveal in global.css)
+      const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { rootMargin: '0px 0px -10% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

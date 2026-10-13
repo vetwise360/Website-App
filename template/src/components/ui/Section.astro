@@ -1,0 +1,9 @@
+---
+interface Props { id?: string; tone?: 'paper' | 'surface' | 'brand' | 'deep'; class?: string; width?: 'narrow' | 'default' | 'wide'; }
+const { id, tone = 'paper', class: cls = '', width = 'default' } = Astro.props;
+const tones = { paper: 'bg-paper text-ink', surface: 'bg-surface text-ink', brand: 'bg-brand text-brand-ink', deep: 'bg-deep text-white' };
+const widths = { narrow: 'max-w-3xl', default: 'max-w-6xl', wide: 'max-w-7xl' };
+---
+<section id={id} class:list={['py-20 sm:py-28 scroll-mt-20', tones[tone], cls]}>
+  <div class:list={['mx-auto px-5 sm:px-8', widths[width]]}><slot /></div>
+</section>

@@ -1,0 +1,7 @@
+---
+import site from '../data/site.json';
+---
+<div class="bg-deep text-white/90 text-center text-xs sm:text-sm py-2 px-4">
+  {site.demo.credit}{' '}
+  {site.demo.url && <a href={site.demo.url} class="underline underline-offset-2 hover:text-white">Learn more</a>}
+</div>

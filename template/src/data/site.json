@@ -1,0 +1,23 @@
+{
+  "business": {
+    "name": "Business Name",
+    "tagline": "One-line value proposition",
+    "type": "LocalBusiness",
+    "phone": "(555) 555-5555",
+    "email": "hello@example.com",
+    "address": { "street": "123 Main St", "city": "City", "region": "ST", "postal": "00000" },
+    "hours": [{ "days": "Mon–Fri", "time": "8:00am – 6:00pm" }],
+    "socials": {}
+  },
+  "seo": { "title": "Business Name — City's trusted …", "description": "150-character description with the service + location." },
+  "nav": [
+    { "label": "Services", "href": "#services" },
+    { "label": "About", "href": "#about" },
+    { "label": "Reviews", "href": "#reviews" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "primaryCta": { "label": "Book an appointment", "href": "#contact" },
+  "secondaryCta": { "label": "Call (555) 555-5555", "href": "tel:+15555555555" },
+  "logo": { "src": "/assets/logo.png", "alt": "Business Name logo", "width": 180, "height": 48 },
+  "demo": { "show": true, "credit": "Concept redesign by Your Agency", "url": "https://youragency.com" }
+}

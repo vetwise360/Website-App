@@ -1,0 +1,31 @@
+---
+import site from '../data/site.json';
+import Button from './ui/Button.astro';
+import Icon from './ui/Icon.astro';
+---
+<header class="sticky top-0 z-40 bg-paper/85 backdrop-blur border-b border-line">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 h-18 flex items-center justify-between gap-6">
+    <a href="/" class="shrink-0" aria-label={`${site.business.name} home`}>
+      <img src={site.logo.src} alt={site.logo.alt} width={site.logo.width} height={site.logo.height} class="h-10 w-auto" />
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-muted" aria-label="Main">
+      {site.nav.map((l) => <a href={l.href} class="hover:text-ink transition">{l.label}</a>)}
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href={site.secondaryCta.href} class="hidden lg:inline-flex items-center gap-2 font-semibold text-[15px]"><Icon name="phone" class="size-4" />{site.business.phone}</a>
+      <Button href={site.primaryCta.href} class="hidden sm:inline-flex">{site.primaryCta.label}</Button>
+      <details class="md:hidden relative">
+        <summary class="list-none cursor-pointer p-2 -mr-2" aria-label="Open menu"><Icon name="menu" class="size-6" /></summary>
+        <div class="absolute right-0 mt-3 w-64 rounded-card bg-paper shadow-card border border-line p-4 flex flex-col gap-3">
+          {site.nav.map((l) => <a href={l.href} class="py-1 font-medium">{l.label}</a>)}
+          <Button href={site.primaryCta.href}>{site.primaryCta.label}</Button>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<!-- Mobile sticky call/book bar: the #1 mobile conversion lever for local businesses. -->
+<div class="sm:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-2 gap-2 p-3 bg-paper/95 backdrop-blur border-t border-line">
+  <Button href={site.secondaryCta.href} variant="ghost"><Icon name="phone" class="size-4" />Call</Button>
+  <Button href={site.primaryCta.href}>{site.primaryCta.label.split(' ').slice(0, 2).join(' ')}</Button>
+</div>

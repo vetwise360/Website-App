@@ -1,0 +1,22 @@
+---
+import site from '../data/site.json';
+const b = site.business;
+---
+<footer class="bg-deep text-white/75 pt-16 pb-28 sm:pb-12">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 grid gap-10 sm:grid-cols-3 text-[15px]">
+    <div>
+      <p class="font-display text-xl text-white">{b.name}</p>
+      <p class="mt-2">{b.tagline}</p>
+    </div>
+    <div>
+      <p class="text-white font-semibold mb-2">Visit</p>
+      <address class="not-italic">{b.address.street}<br />{b.address.city}, {b.address.region} {b.address.postal}</address>
+      <p class="mt-2"><a href={site.secondaryCta.href} class="hover:text-white">{b.phone}</a></p>
+    </div>
+    <div>
+      <p class="text-white font-semibold mb-2">Hours</p>
+      <ul>{b.hours.map((h) => <li>{h.days}: {h.time}</li>)}</ul>
+    </div>
+  </div>
+  <p class="mx-auto max-w-6xl px-5 sm:px-8 mt-12 text-sm text-white/50">© {new Date().getFullYear()} {b.name}</p>
+</footer>

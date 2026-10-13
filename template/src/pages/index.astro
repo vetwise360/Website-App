@@ -1,0 +1,23 @@
+---
+// Placeholder. The designer agent replaces this page with industry-specific
+// sections in src/components/sections/ (see .claude/skills/design-core).
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import site from '../data/site.json';
+---
+<Base>
+  <Header />
+  <main id="main">
+    <Section>
+      <h1 class="text-5xl sm:text-6xl font-semibold max-w-3xl">{site.business.tagline}</h1>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href={site.primaryCta.href} size="lg">{site.primaryCta.label}</Button>
+        <Button href={site.secondaryCta.href} size="lg" variant="ghost">{site.secondaryCta.label}</Button>
+      </div>
+    </Section>
+  </main>
+  <Footer />
+</Base>

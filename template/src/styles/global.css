@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens. The designer agent rewrites THIS block per industry
+   skill — components only reference tokens, never raw hex values.
+   ------------------------------------------------------------------ */
+@theme {
+  --font-display: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #ffffff;      /* page background */
+  --color-surface: #f6f7f9;    /* alt section / card background */
+  --color-ink: #0f172a;        /* primary text */
+  --color-muted: #475569;      /* secondary text (must pass 4.5:1 on paper) */
+  --color-line: #e2e8f0;       /* borders */
+  --color-brand: #1d4ed8;      /* brand primary */
+  --color-brand-ink: #ffffff;  /* text on brand */
+  --color-accent: #f59e0b;     /* CTA / highlight (use sparingly) */
+  --color-accent-ink: #111827; /* text on accent */
+  --color-deep: #0b1324;       /* dark sections */
+
+  --radius-card: 1rem;
+  --radius-btn: 999px;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / .04), 0 8px 24px -8px rgb(0 0 0 / .12);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { @apply bg-paper text-ink font-body text-[17px] leading-relaxed; }
+  h1, h2, h3, h4 { @apply font-display text-balance; letter-spacing: -0.02em; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+}
+
+/* Scroll reveal. Content is visible by default; JS only adds the animation,
+   so screenshots, no-JS, and reduced-motion users always see everything. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+}
