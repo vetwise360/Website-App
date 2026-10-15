@@ -11,6 +11,7 @@ Paste a lead's URL. You get back a redesigned homepage that has passed review, l
 npm run setup                 # installs scripts, the Astro template, and Playwright's Chromium
 cp .env.example .env          # add VERCEL_TOKEN (and VERCEL_SCOPE for a team)
 ```
+Claude Code also runs `npm run setup` automatically at the start of every session (a SessionStart hook in `.claude/settings.json`), so you don't need to run it by hand. **In a cloud environment, leave the environment's Setup script empty.** The hook handles installation, and `VERCEL_TOKEN` goes in the environment variables instead of `.env`.
 Edit `pipeline.config.json` to set your agency name, URL, the demo banner text, the maximum number of review rounds, and whether to deploy.
 
 ## How it works

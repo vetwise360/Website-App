@@ -7,7 +7,7 @@
     "capture": "node scripts/capture.mjs",
     "new-site": "node scripts/new-site.mjs",
     "deploy": "bash scripts/deploy.sh",
-    "setup": "npm install && npm --prefix template install && npx playwright install chromium"
+    "setup": "bash scripts/setup.sh"
   },
   "dependencies": {
     "@axe-core/playwright": "4.11.0",
