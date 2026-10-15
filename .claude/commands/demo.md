@@ -36,8 +36,11 @@ Agent `designer`, prompt: `BUILD slug=<slug>. Brief: runs/<slug>/brief.json. Dem
 If deploy is enabled: `bash scripts/deploy.sh <slug>` (it refuses unless the latest review is PASS). If `VERCEL_TOKEN` is missing, tell the user to add it to `.env` and stop.
 
 ## 6. Report (keep it short)
-- Staging URL (from `runs/<slug>/url.txt`)
+- **First line: the staging URL** from `runs/<slug>/url.txt`, as a clickable link.
+- **Show the before/after screenshots** in the chat. Use the session's file-sharing tool if there is one (e.g. SendUserFile with display "render"); otherwise list their paths:
+  `runs/<slug>/before/shots/desktop-fold.jpg`, the last `runs/<slug>/after-<N>/shots/desktop-fold.jpg`, and the last `runs/<slug>/after-<N>/shots/mobile-fold.jpg`.
+  Do the same when the run stops at the last round without a PASS, so the user can judge it.
 - Rounds needed, old → new scores (from the last review's `scores`)
 - The 5 improvements, one line each
-- `brief.pitch` — ready to paste into LinkedIn
+- `brief.pitch`, ready to paste into LinkedIn
 - Any placeholders the designer flagged
