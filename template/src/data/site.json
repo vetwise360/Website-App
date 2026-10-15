@@ -19,5 +19,5 @@
   "primaryCta": { "label": "Book an appointment", "href": "#contact" },
   "secondaryCta": { "label": "Call (555) 555-5555", "href": "tel:+15555555555" },
   "logo": { "src": "/assets/logo.png", "alt": "Business Name logo", "width": 180, "height": 48 },
-  "demo": { "show": true, "credit": "Concept redesign by Your Agency", "url": "https://youragency.com" }
+  "demo": { "show": true, "credit": "Concept redesign by ScalVex", "url": "https://www.scalvex.tech" }
 }

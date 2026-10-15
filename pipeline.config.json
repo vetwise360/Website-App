@@ -1,6 +1,6 @@
 {
-  "agency": { "name": "Your Agency", "url": "https://youragency.com" },
-  "demoBanner": { "show": true, "text": "Concept redesign by Your Agency" },
+  "agency": { "name": "ScalVex", "url": "https://www.scalvex.tech" },
+  "demoBanner": { "show": true, "text": "Concept redesign by ScalVex" },
   "maxReviewRounds": 3,
   "deploy": true
 }
